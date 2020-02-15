@@ -1,0 +1,48 @@
+.btn_up
+{
+    background: rgb(16, 39, 121);
+    bottom: 2.6em;
+    right: 2em;
+    padding: 5px 0.5em 5px;
+    border-radius: 20px;
+    font-size: 25px;
+    text-decoration: none;
+    list-style-type: none;
+    cursor: pointer;
+    position: fixed;
+    display: none;
+}
+
+.icon-btn
+{
+    padding: 5em 10px 5em;
+    position: fixed;
+    display: flex;
+    top: 5%;
+    right: 61em;
+}
+
+.icon-btn a img
+{
+    width: 70%;
+}
+
+.icon-btn ul li a
+{
+    display: block; 
+    list-style-type: none;
+    text-decoration: none;
+    display: none;
+    cursor: pointer;
+}
+
+.icon-btn ul li
+{
+    text-decoration: none;
+    list-style-type: none;
+    margin: 5px 1.5em 2.5em;
+}
+.btn_up:hover
+{
+    background: rgb(48, 161, 63);
+}

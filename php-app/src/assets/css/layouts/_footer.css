@@ -1,0 +1,28 @@
+.footer_cointaner
+{
+    margin-top: 10em;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Montserrat',sans-serif;
+    background-color: rgb(17, 9, 29);
+}
+
+.footer_cointaner a
+{
+    text-decoration: none;
+    color: white;
+    padding: 2.5em 8px 5px 20px;
+    
+}
+.footer_cointaner ul li
+{
+    list-style-type: none;
+    float: left;
+    margin: 10px 3px 0px 5px;
+    padding: 8px 5px 8px;
+}
+.footer_cointaner ul li img
+{
+    float: right;
+    width: 30px;
+}

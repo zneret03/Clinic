@@ -1,0 +1,207 @@
+.cont_elements
+{
+    margin: 1.5em 2em 5px;
+    font-size: 50px;
+    color: #173BBD;
+    position: relative;
+    overflow: hidden;
+}
+
+.cont_elements form input[type=text]
+{
+    display: flex;
+    flex-flow: column;
+    width: 17.5em;
+    margin: 3em 10px 10px;
+    border: none;
+    background-color: white;
+    text-decoration-color: black;
+}
+
+.cont_elements form input[type=email]
+{
+    display: flex;
+    flex-flow: column;
+    width: 17.5em;
+    margin: 3em 10px 10px;
+    border: none;
+    background-color: white;
+    text-decoration-color: black;
+}
+
+.cont_elements .label-name
+{
+    position: absolute;
+    font-size: 15px;
+    left: 0.5em;
+    top: 11em;
+    width: 17.5em;
+    padding: 10px;
+    color: rgba(153, 149, 149, 0.5);
+    border-bottom: 1px solid rgba(207, 202, 202, 0.5);
+    pointer-events: none;
+}   
+
+.cont_elements .label-lstname
+{
+    position: absolute;
+    font-size: 15px;
+    left: 0.5em;
+    top: 15em;
+    width: 17.5em;
+    padding: 10px;
+    color: rgba(153, 149, 149, 0.5);
+    border-bottom: 1px solid rgba(207, 202, 202, 0.5);
+    pointer-events: none;
+}   
+
+.cont_elements .label-email
+{
+    position: absolute;
+    font-size: 15px;
+    left: 0.5em;
+    top: 19.5em;
+    width: 17.5em;
+    padding: 10px;
+    color: rgba(153, 149, 149, 0.5);
+    border-bottom: 1px solid rgba(207, 202, 202, 0.5);
+    pointer-events: none;
+}   
+
+.cont_elements .label-contact
+{
+    position: absolute;
+    font-size: 15px;
+    left: 0.5em;
+    top: 24em;
+    width: 17.5em;
+    padding: 10px;
+    color: rgba(153, 149, 149, 0.5);
+    border-bottom: 1px solid rgba(207, 202, 202, 0.5);
+    pointer-events: none;
+}   
+
+.content-name
+{
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+
+.content-lstname
+{
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+
+.content-email
+{
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+
+.content-contact
+{
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+
+.cont_elements label::after
+{
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    width: 19em;
+    border-bottom: 1px solid #5fa8d3;
+    transform: translateX(-19.5em);
+    transition: transform 0.3s ease;
+}
+
+/*Name*/
+.cont_elements form input:focus + .label-name .content-name,
+.cont_elements form input:valid + .label-name .content-name
+{
+    transform: translateY(-150%);
+    font-size: 13px;
+    color: #5fa8d3;
+    
+}
+
+.cont_elements input:focus + .label-name:after, .cont_elements input:valid + .label-name::after
+{
+    transform: translateX(0%);
+}
+/*Lat Name*/
+.cont_elements form input:focus + .label-lstname .content-lstname,
+.cont_elements form input:valid + .label-lstname .content-lstname
+{
+    transform: translateY(-150%);
+    font-size: 13px;
+    color: #5fa8d3;
+    
+}
+
+.cont_elements input:focus + .label-lstname:after, .cont_elements input:valid + .label-lstname::after
+{
+    transform: translateX(0%);
+}
+
+/*Email*/
+.cont_elements form input:focus + .label-email .content-email,
+.cont_elements form input:valid + .label-email .content-email
+{
+    transform: translateY(-150%);
+    font-size: 13px;
+    color: #5fa8d3;
+}
+
+.cont_elements input:focus + .label-email:after, .cont_elements input:valid + .label-email::after
+{
+    transform: translateX(0%);
+}
+/*Contact*/
+.cont_elements form input:focus + .label-contact .content-contact,
+.cont_elements form input:valid + .label-contact .content-contact
+{
+    transform: translateY(-150%);
+    font-size: 13px;
+    color: #5fa8d3;
+}
+
+.cont_elements input:focus + .label-contact:after, .cont_elements input:valid + .label-contact::after
+{
+    transform: translateX(0%);
+}
+
+
+.cont_elements form button
+{
+    background-color: #2C345F;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 10px 3.5em 10px;
+    margin: 0.5em 2.1em auto;
+    border: none;
+    cursor: pointer;
+}
+
+.cont_elements form a:hover
+{
+    background-color: #D13B3B;
+}
+.cont_elements img
+{
+    width: 78%;
+    margin: 0 6.5em 0;
+    position: absolute;
+}

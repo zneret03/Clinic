@@ -1,0 +1,36 @@
+header
+{
+    justify-content: space-between;
+    display: flex;
+    background-color: rgb(17, 9, 29);
+}
+nav ul 
+{
+    list-style-type: none;
+    margin-right: 50px;
+    margin-top: 0;
+}
+nav ul li
+{
+    margin: 30px;
+    float: left;
+    border: none;
+}
+nav ul li a
+{
+   color: #fff;
+   text-decoration: none;
+   font-size: 15px;
+   padding: 10px;
+   text-align: center;
+}
+.btn_login
+{
+    background-color: #00CC80;
+    padding: 8px 40px 8px 40px;
+    border-radius: 4px;
+}
+.btn_login:hover
+{
+    background-color: rgb(29, 124, 67);;
+}

@@ -1,0 +1,76 @@
+.background
+{
+    margin-top: 0;
+    width: 100%;
+    object-fit: cover;
+}
+.image_logo
+{
+    position: absolute;
+    top: 8px;
+    width: 50px;
+    padding: 7em 15px 10em 10em;
+}
+.statement a
+{
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    pointer-events: none;
+    font-size: 25px;
+}
+.logo2
+{
+    width: 15em;
+}
+.statement
+{
+    position: absolute ;
+    bottom: 9px;
+    padding: 0px 50px 9em 6.5em;
+    color: #fff;
+}
+.statement2 a
+{
+
+    font-size: 20px;
+    color: #fff;
+    text-decoration: none;
+    pointer-events: none;
+    font-size: 25px;
+}
+.statement2
+{
+    position: absolute ;
+    bottom: 9px;
+    padding: 0px 50px 7em 5em;
+    color: #fff;
+    
+}
+
+.logo
+{
+    width: 35mm;
+    padding: 5px 15px 15px 20px;
+}
+.arrowdown
+{
+    text-align: center;
+}
+.arrowdown img
+{
+    margin-top: 3.5em;
+    width: 30px;
+    animation: animate 1s alternate infinite;
+}
+@keyframes animate
+{
+    0%
+    {
+        transform: translateX(0%);
+    }
+    100%
+    {
+        transform: translateY(50%);
+    }
+}

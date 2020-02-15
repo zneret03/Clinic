@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600');
+body
+{
+    margin: 0;
+    font-family: 'Montserrat',sans-serif;
+}
+
+.margin
+{
+    margin: 5em 5em 5em;
+}
+
+.body
+{
+    background-color: #F0F2F5;
+}
+
+.container
+{
+    text-align: center;
+    position: relative;
+    margin: 0 0 3em;
+}
+
+/*gray container fever*/
+.gray-container
+{
+    background-color: rgba(169, 169, 169, 0.1);
+    display: flex;
+    justify-content: center;
+    padding: 2em 5em 2em;
+}
+
+.gray-container img
+{
+    width: 100px;
+    padding: 5px 5em 5px;
+}
+
+.gray-container .img h1
+{
+    font-size: 15px;
+    font-weight: normal;
+}
+
+/*gray container fever*/
+.cont a
+{
+    background-color: #00CC80;
+    padding: 13px 10em 13px 10em;
+    border-radius: 4px;
+    color:#fff;
+    text-decoration: none;
+    font-size: 25px;
+} 
+.cont a:hover
+{
+    background-color: rgb(29, 124, 67);
+}
+.cont h1
+{
+    margin: 0 0 1em;
+}
+/*Bacteria container*/
+.bacteria-container
+{   
+    display: flex;
+    margin: 0 10em 5em;
+}
+.bacteria-container img
+{
+    margin: 4em 0 0;
+    width: 70%;
+}
+.bacteria-container h1
+{
+    padding: 0.5em 1em 0 1em;
+    font-size: 2em;
+}
+.bacteria-container p 
+{
+    margin: 0 2em 0 3em;
+    text-align: left;
+}
+.bacteria-container ul li
+{
+    margin: 0 2em 0;
+    text-align: left;
+}
+.content ul li
+{
+    padding: 10px;
+}
+/*Bacteria container*/
+
+/*Vaccene container*/
+.vaccene-container
+{   
+    display: flex;
+    margin: 0 10em 0;
+}
+.vaccene-container img
+{
+    margin: 4em 0 0;
+    width: 80%;
+}
+.vaccene-container h1
+{
+    padding: 0.5em 0 0;
+    font-size: 2em;
+    text-align: center;
+    font-weight: normal;
+}
+.vaccene-container p 
+{
+    margin: 0 2em 0 3em;
+    text-align: left;
+}
+/*Vaccene container*/
+
+/*personal Hygien container*/
+.personal-container
+{   
+    display: flex;
+    margin: 4em 10em 5em;
+}
+.personal-container img
+{
+    margin: 4em 0 0;
+    width: 70%;
+}
+.personal-container h1
+{
+    padding: 0.5em 1em 0 1em;
+    font-size: 2em;
+}
+.personal-container p 
+{
+    margin: 0 2em 0 3em;
+    text-align: left;
+}
+.personal-container ul li
+{
+    margin: 0 2em 0;
+    text-align: left;
+}
+/*personal Hygien container*/
