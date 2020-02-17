@@ -34,7 +34,7 @@ $doct = $doctor->fetchRandomDoctor();
     </div>
 <br class="mt-5">
 <div class="col-lg-6">
-<form action="appointments.php" method="POST" role="form" id="appointmentsForm">
+<form action="../data/appointments.data.php" method="POST" role="form" id="appointmentsForm">
     <div class="card" id="patientsAppointments" style="display:none;">
         <div class="card-header danger-color">
             <h4 class="text-white">Appointments</h4>
@@ -154,15 +154,15 @@ $doct = $doctor->fetchRandomDoctor();
             <div class="col-md-12">
                     <div class="form-group">
                         <h6>Appointments Fee</h6>
-                        <span class="form-control" id="appointments_fee"></span>
+                        <input type="text" class="form-control" name="appointments_fee" id="appointments_fee" readonly>
                     </div>
                     <div class="form-group">
                         <h6>Check up fee</h6>
-                        <span class="form-control" id="check_up_fee"></span>
+                        <input type="text" class="form-control" name="check_up_fee" id="check_up_fee" readonly>
                     </div>
                     <div class="form-group">
                         <h6>Total</h6>
-                        <span class="form-control" id="total"></span>
+                        <input type="text" class="form-control" name="total" id="total" readonly>
                     </div>
             </div>
             </div>

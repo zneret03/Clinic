@@ -145,11 +145,38 @@
                 return $data;
             }
 
-            protected function setAppointments($appointments)
+            protected function appointmentsCredentials($appointments)
             {
                 try 
-                {
-                    $SQL = "";
+                {    
+                    //$value = count($appointments);
+                    $fetchDataDoctor = new doctor();
+                    $appointments_sql = "INSERT INTO appointments_credentials 
+                    (
+                        app_cred_id,
+                        firstname,
+                        middlename,
+                        lastname,
+                        customerAddress,
+                        phoneNo,
+                        Email,
+                        Notes,
+                        Age,
+                        gender,
+                        doctor_id
+                    ) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+                    
+                    $getData = $fetchDataDoctor->executeQuery($appointments,$appointments_sql);
+
+                    if($getData->rowCount() > 0)
+                    {
+                        echo "<script>alert('Successfully Inserted'); window.location='../frontend/appointments.php'</script>";
+                    }
+                    
+                    
+                    //print_r($appointments);
+                    executeQuery($appointments,$appointments_sql);
+
                 } 
                 catch (PDOException $ex) 
                 {

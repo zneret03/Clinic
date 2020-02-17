@@ -35,6 +35,46 @@
 
         public function appointments($appointments)
         {
-            return $appointments;
+            $appointments_credential = array(
+                $appointments[0],
+                $appointments[1],
+                $appointments[2],
+                $appointments[3],
+                $appointments[4],
+                $appointments[5],
+                $appointments[6],
+                $appointments[7],
+                $appointments[8],
+                $appointments[9],
+                $appointments[10]
+            );
+
+            $time_payments = array(
+                $appointments['11'],
+                $appointments['12']
+            );
+
+            //for user credentials
+            while($appointments_credential)
+            {
+                $value = count($appointments_credential);
+                if($value == 11)
+                {
+                    $this->appointmentsCredentials($appointments_credential);
+                    exit;
+                }
+            }
+            
+            /*
+            while($time_payments)
+            {
+                $payments = count($time_payments);
+                if($payments == 2)
+                {
+                    $this->time_payments($time_payments[1]);
+                    exit;
+                }
+            }
+            */
         }
     }

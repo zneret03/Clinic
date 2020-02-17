@@ -35,7 +35,8 @@
             //Calculate total payments
             const total = setPayments(data);
 
-            //json format data  
+            //json format data
+            /*  
             const appointments = {
                 "doctorid" :  $('#doctorid').val(),
                 "firstname" : $('#firstname').val(),
@@ -50,26 +51,24 @@
                 "totalPayments" : total,
                 "appointments" : $('#appointments').val()
             }
+            */
 
             
-            if(appointments.firstname == "" || appointments.middlename == "" ||
-               appointments.lastname == "" || appointments.phoneNumber == "" || 
-               appointments.email == "" || appointments.notes == "" || 
-               appointments.address == "" || appointments.age == "" || 
-               appointments.gender == "")
+            if(appointments.firstname == " " || appointments.middlename == " " ||
+               appointments.lastname == " " || appointments.phoneNumber == " " || 
+               appointments.email == " " || appointments.notes == " " || 
+               appointments.address == " " || appointments.age == " " || 
+               appointments.gender == " ")
             {
                 //End user validation  
                 Uservalidation();
             } 
             else
-            {
-
+            {   
                 $('#Userpayments').show('slow');
                 $('#submitAppointment').show('slow');
-
                 //Insert to the database
-                insert(appointments);
-
+                //insert(appointments);
             }
             
         });
@@ -82,7 +81,7 @@
         });
     });
 
-
+    /*
     //pass data to the database
     function insert(data)
     {
@@ -93,7 +92,7 @@
                 data : {data : data},
                 success : function()
                 {
-                    alert("sucess");
+                    alert("Success");
                 },
                 error : function()
                 {
@@ -102,13 +101,14 @@
             });
         });
     }
+    */
 
     //Calculate total payments
     function setPayments(data)
     {
-        let check_up_fee = document.getElementById('check_up_fee').innerHTML = data[0];
-        let appointments_Fee = document.getElementById('appointments_fee').innerHTML = data[1];
-        let total = document.getElementById('total').innerText = (check_up_fee + appointments_Fee + "Php");
+        let check_up_fee = document.getElementById('check_up_fee').value = data[0];
+        let appointments_Fee = document.getElementById('appointments_fee').value = data[1];
+        let total = document.getElementById('total').value = (check_up_fee + appointments_Fee + "Php");
         
         return total;
     }
@@ -239,7 +239,7 @@
                 phoneNum :
                 {
                     required : "please fill all forms",
-                    minlength : "must be 11 digit number"
+                    minlength : "must not exceed 11 digit"
                 },
                 email :
                 {
