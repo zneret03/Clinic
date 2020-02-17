@@ -149,7 +149,7 @@
             {
                 try 
                 {    
-                    //$value = count($appointments);
+                    
                     $fetchDataDoctor = new doctor();
                     $appointments_sql = "INSERT INTO appointments_credentials 
                     (
@@ -163,8 +163,10 @@
                         Notes,
                         Age,
                         gender,
-                        doctor_id
-                    ) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+                        doctor_id,
+                        app_time,
+                        payments_id
+                    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
                     
                     $getData = $fetchDataDoctor->executeQuery($appointments,$appointments_sql);
 
@@ -172,15 +174,60 @@
                     {
                         echo "<script>alert('Successfully Inserted'); window.location='../frontend/appointments.php'</script>";
                     }
-                    
-                    
-                    //print_r($appointments);
-                    executeQuery($appointments,$appointments_sql);
 
                 } 
                 catch (PDOException $ex) 
                 {
                     var_dump($ex->getMessage());       
+                }
+            }
+
+            protected function payment($payment)
+            {
+                try 
+                {
+                    $user_payment = new doctor();
+                    $payment_query = "INSERT INTO payments(bill) VALUES (?)";
+                    $getLastInsertedId_payments = $user_payment->executeQuery([$payment],$payment_query);
+
+                    if($getLastInsertedId_payments->rowCount() > 0)
+                    {
+                        $lastInsert = "SELECT max(payments_id) FROM payments";
+                        $stmt = $this->connect()->prepare($lastInsert);
+                        $stmt->execute();
+                        $id = $stmt->fetch();
+
+                        return $id;
+                    }
+                    
+                } 
+                catch (PDOException $ex) 
+                {
+                   var_dump($ex->getMessage());
+                }
+            }
+
+            protected function appointments_time($appointments_time)
+            {
+                try 
+                {
+                    $user_appointment_time = new doctor();
+                    $appointment_query = "INSERT INTO Appointments_time (appointments_time) VALUES (?)";
+                    $getlastInsertedId_appoint_Time = $user_appointment_time->executeQuery([$appointments_time],$appointment_query);
+
+                    if($getlastInsertedId_appoint_Time->rowCount() > 0)
+                    {
+                        $lastInsert = "SELECT max(app_time) FROM Appointments_time";
+                        $stmt = $this->connect()->prepare($lastInsert);
+                        $stmt->execute();
+                        $id = $stmt->fetch();
+
+                        return $id;
+                    }
+                } 
+                catch (PDOException $ex) 
+                {
+                    var_dump($ex->getMessage());
                 }
             }
     }
