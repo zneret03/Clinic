@@ -36,9 +36,7 @@
             const total = setPayments(data);
 
             //json format data
-            /*  
             const appointments = {
-                "doctorid" :  $('#doctorid').val(),
                 "firstname" : $('#firstname').val(),
                 "middlename" : $('#middlename').val(),
                 "lastname" : $('#lastname').val(),
@@ -47,30 +45,20 @@
                 "notes" : $('#description').val(),
                 "address" : $('#address').val(),
                 "age" : $('#age').val(),
-                "gender" : $('#gender').val(),
-                "totalPayments" : total,
-                "appointments" : $('#appointments').val()
+                "gender" : $('#gender').val()
             }
-            */
 
-            
-            if(appointments.firstname == " " || appointments.middlename == " " ||
-               appointments.lastname == " " || appointments.phoneNumber == " " || 
-               appointments.email == " " || appointments.notes == " " || 
-               appointments.address == " " || appointments.age == " " || 
-               appointments.gender == " ")
-            {
-                //End user validation  
-                Uservalidation();
-            } 
-            else
-            {   
-                $('#Userpayments').show('slow');
-                $('#submitAppointment').show('slow');
-                //Insert to the database
-                //insert(appointments);
-            }
-            
+            $.each(appointments, function(key, value){
+                if(value.length == 0)
+                {
+                    Uservalidation();
+                }
+                else
+                {
+                    $('#Userpayments').show('slow');
+                    $('#submitAppointment').show('slow');
+                }
+            });
         });
     });
 
@@ -80,28 +68,6 @@
             $('#appointmentsForm')[0].reset();
         });
     });
-
-    /*
-    //pass data to the database
-    function insert(data)
-    {
-        $('#submitAppointment').on('click', function(){
-            $.ajax({
-                url : "../data/appointments.data.php",
-                method : "POST",
-                data : {data : data},
-                success : function()
-                {
-                    alert("Success");
-                },
-                error : function()
-                {
-                    alert("Ajax request error");
-                }
-            });
-        });
-    }
-    */
 
     //Calculate total payments
     function setPayments(data)
@@ -144,7 +110,15 @@
             },
             selectable : true,
             selectHelper : true,
-            //events
+            eventTextColor : '#FFF',
+            view : 
+            {
+                timeGrid : 
+                {
+                    eventLimit : 4 //Limit the evenit to 4 members only
+                }
+            },
+            events : '../view/loadAppointments.view.php',
             eventLimit : true,
             select : function(event)
             {
@@ -162,7 +136,7 @@
         let listcalendar = new FullCalendar.Calendar(listCalendar,{
             plugins: ['list'],
             defaultView : 'listWeek',
-            //events
+            events : '../view/loadAppointments.view.php',
             eventLimit : true,
             views : {
                 listMonth : {buttonText : 'Month'}

@@ -22,7 +22,12 @@
                                 <h4 class="text-white float-right card-header-title">Appointments</h4>
                         </div>
                         <div class="card-footer">
-                            <h3 class="float-right text-default">1000</h3>
+                            <h3 class="float-right text-default">
+                                <?php 
+                                    $getAppointments = new Doctorview();
+                                    echo $getAppointments->getAppointmentsData();
+                                ?>
+                            </h3>
                         </div>
                     </div>
                 </div>

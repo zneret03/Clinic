@@ -20,6 +20,6 @@
     }
     else
     {
-        echo  json_encode($calendar);
+        echo json_encode($calendar);
     }
 

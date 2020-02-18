@@ -23,7 +23,7 @@ $doct = $doctor->fetchRandomDoctor();
 <body>
     <? include_once 'header.php' ?>
 <div class="margin">
-<h3>Appointments</h3>
+<h3>CLife Appointments</h3>
 <hr>
 <br class="mt-5">
 <div class="row">

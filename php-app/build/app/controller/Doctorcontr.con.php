@@ -61,4 +61,9 @@
             
             return $data_id;
         }
+
+        public function countAppointments()
+        {
+            return $this->getAppointments();
+        }
     }

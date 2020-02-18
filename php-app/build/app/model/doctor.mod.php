@@ -149,7 +149,6 @@
             {
                 try 
                 {    
-                    
                     $fetchDataDoctor = new doctor();
                     $appointments_sql = "INSERT INTO appointments_credentials 
                     (
@@ -182,6 +181,7 @@
                 }
             }
 
+            //Save total payments time and returning the last inserted ID 
             protected function payment($payment)
             {
                 try 
@@ -207,6 +207,7 @@
                 }
             }
 
+            //Save appointments time and returning the last inserted ID 
             protected function appointments_time($appointments_time)
             {
                 try 
@@ -227,6 +228,53 @@
                 } 
                 catch (PDOException $ex) 
                 {
+                    var_dump($ex->getMessage());
+                }
+            }
+
+            public function fetchAppointments()
+            {
+                try 
+                {
+                   $fetch_appointments_time = "SELECT 
+                   app_cred_id,
+                   firstname,
+                   middlename,
+                   lastname,
+                   appointments_time 
+                   FROM 
+                   appointments_credentials 
+                   INNER JOIN Appointments_time 
+                   ON Appointments_time.app_time = appointments_credentials.app_time";
+                   
+                   $stmt = $this->connect()->prepare($fetch_appointments_time);
+                   $stmt->execute();
+                   $result = $stmt->fetchAll();
+                   
+                   return $result;
+                } 
+                catch (PDOException $ex) 
+                {
+                    var_dump($ex->getMessage());
+                }
+            }
+
+            protected function getAppointments()
+            {
+                try 
+                {
+                    $get_Appointments = "SELECT count(app_cred_id) FROM appointments_credentials";
+                    $stmt = $this->connect()->prepare($get_Appointments);
+                    $stmt->execute();
+
+                    $result = $stmt->fetch();
+
+                    foreach($result as $values)
+                    {
+                        echo $values; 
+                    }
+                } 
+                catch (PDOException $ex) {
                     var_dump($ex->getMessage());
                 }
             }

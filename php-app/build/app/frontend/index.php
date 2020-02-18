@@ -72,7 +72,7 @@
         <div class="cont">
                 <div class="container">
                         <h1>Start your free account now!</h1>
-                        <a href="includes/Login.php">Getting Started</a>
+                        <a href="../includes/Login.php">Getting Started</a>
                 </div>
         </div>
         <?php include_once 'footer.php';?>

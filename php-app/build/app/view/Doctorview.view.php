@@ -11,4 +11,9 @@
         {
             return $this->randDoctor();
         }
+
+        public function getAppointmentsData()
+        {
+            return $this->countAppointments();
+        }
     }
