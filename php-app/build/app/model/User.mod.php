@@ -258,11 +258,6 @@
                 $time_select = "SELECT 
                 check_id,
                 user_email,
-                fname,
-                mname,
-                lname,
-                username,
-                usertype,
                 login_time,
                 logout_time,
                 statusColor 
@@ -283,7 +278,35 @@
             {
                 var_dump($ex->getMessage());
             }
-            
+        }
+
+        protected function getOnlineUsers()
+        {
+            try 
+            {
+                $onlineUsers = "SELECT 
+                check_id,
+                user_email,
+                fname,
+                mname,
+                lname,
+                username,
+                usertype,
+                statusColor 
+                FROM login_logout 
+                INNER JOIN users 
+                ON users.user_code = login_logout.user_code";
+
+                $stmt = $this->connect()->prepare($onlineUsers);
+                $stmt->execute();
+                $result = $stmt->fetchAll();
+
+                return $result;
+            } 
+            catch (PDOException $ex) 
+            {
+                var_dump($ex->getMessage());
+            }
         }
 
         protected function deleteTime($time)

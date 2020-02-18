@@ -67,6 +67,11 @@
             return $this->timeFetch();
         }
 
+        public function setOnline()
+        {
+            return $this->fetchUsersOnline();
+        }
+
         public function countAccountsInserted()
         {
             return $this->getAccounts();

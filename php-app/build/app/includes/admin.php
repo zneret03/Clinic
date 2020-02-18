@@ -2,6 +2,7 @@
     include_once '../auto/auto_load.auto.php';
     $time_fetch = new Userview();
     $time = $time_fetch->getTime();
+    $online = $time_fetch->setOnline();
     ?>
         <div class="container">
             <div class="text-right">
@@ -151,7 +152,7 @@
                                         </tr>
                                         </thead>
                                         <?
-                                        foreach($time as $onlineUsers)
+                                        foreach($online as $onlineUsers)
                                         {
                                             if($onlineUsers['statusColor'] == "#42B72A")
                                             {

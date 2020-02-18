@@ -10,6 +10,12 @@
         },
         editable: true,
         eventLimit : true, //Limits the number of events displayed on a day
+            view : {
+                timeGrid : 
+                {
+                    eventLimit : 4
+                }
+            },
             selectable : true,
             selectHelper : true,
             eventTextColor : '#FFFFFF',     

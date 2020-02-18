@@ -88,9 +88,14 @@
             return $this->fetchTime();
         }
 
+        public function fetchUsersOnline()
+        {
+            return $this->getOnlineUsers();
+        }
+
         public function countOnlineUsers()
         {
-            return $this->fetchTime();
+            return $this->getOnlineUsers();
         }
 
         public function DeleteTmime($time)
