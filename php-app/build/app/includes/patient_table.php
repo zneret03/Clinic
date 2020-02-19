@@ -9,7 +9,7 @@
             </ul>
         </nav>
         <hr class="mt-5">
-        <table class="table table-responsive table-striped table-bordered text-center  animated fadeIn" id="patientTable">
+        <table class="table table-responsive table-striped table-bordered text-center animated fadeIn" id="patientTable">
             <thead>
                 <tr>
                     <th>Patients ID</th>

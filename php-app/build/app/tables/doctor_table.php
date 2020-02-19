@@ -6,9 +6,9 @@
 
     $col =array(
         0   =>  'doctor_id',
-        1   =>  'firstname',
-        2   =>  'middlename',
-        3   =>  'lastname',
+        1   =>  'fname',
+        2   =>  'mname',
+        3   =>  'lname',
         4   =>  'abbreviation',
         5   =>  'doc_Address',
         6   =>  'age',
@@ -24,9 +24,9 @@
     $sql ="SELECT * FROM doctor WHERE 1=1";
     if(!empty($request['search']['value'])){
         $sql.=" AND (doctor_id Like '%".$request['search']['value']."%' ";
-        $sql.=" OR firstname Like '%".$request['search']['value']."%' ";
-        $sql.=" OR middlename Like '%".$request['search']['value']."%' ";
-        $sql.=" OR lastname Like '%".$request['search']['value']."%' ";
+        $sql.=" OR fname Like '%".$request['search']['value']."%' ";
+        $sql.=" OR mname Like '%".$request['search']['value']."%' ";
+        $sql.=" OR lname Like '%".$request['search']['value']."%' ";
         $sql.=" OR abbreviation Like '%".$request['search']['value']."%' ";
         $sql.=" OR doc_Address Like '%".$request['search']['value']."%' ";
         $sql.=" OR age Like '%".$request['search']['value']."%' ";

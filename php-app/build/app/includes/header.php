@@ -62,7 +62,7 @@
 
                             <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarContent">
                                         <a href="scheduller.php" class="dropdown-item"><i class="fas fa-calendar-alt"></i> Schedule</a>
-                                        <a href="#" class="dropdown-item"><i class="fas fa-file-medical"></i> Appointment History</a>
+                                        <a href="appointments_history.php" class="dropdown-item"><i class="fas fa-file-medical"></i> Appointment History</a>
                             </div>
                             </li>
                             <li class="nav-item">

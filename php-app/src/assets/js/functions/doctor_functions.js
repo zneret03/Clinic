@@ -5,7 +5,7 @@
         "ajax" : 
         {
             type : "POST",
-            url : "../model/doctor_table.mod.php"
+            url : "../tables/doctor_table.php"
         }
     });
 

@@ -52,7 +52,7 @@
                 try 
                 {
                     $createDoctor = new doctor();
-                    $sql = "INSERT INTO doctor (doctor_id, firstname, middlename, lastname, abbreviation, doc_address, age, gender) 
+                    $sql = "INSERT INTO doctor (doctor_id, fname, mname, lname, abbreviation, doc_address, age, gender) 
                     VALUES (?,?,?,?,?,?,?,?)";
                     $getData = $createDoctor->executeQuery($doctor,$sql);
                     if($getData->rowCount() > 0)
@@ -96,9 +96,9 @@
                 {
                     $updateDoctor = new doctor();
                     $sql = "UPDATE doctor SET 
-                    firstname = ?, 
-                    middlename = ?, 
-                    lastname = ?, 
+                    fname = ?, 
+                    mname = ?, 
+                    lname = ?, 
                     abbreviation = ?, 
                     doc_address = ?, 
                     age = ?, 
@@ -130,16 +130,16 @@
 
             protected function randomDoctor()
             {
-                $doctorRandom = "SELECT doctor_id,firstname,middlename,lastname FROM doctor ORDER BY RAND() LIMIT 1";
+                $doctorRandom = "SELECT doctor_id,fname,mname,lname FROM doctor ORDER BY RAND() LIMIT 1";
                 $stmt = $this->connect()->prepare($doctorRandom);
                 $stmt->execute();
                 $data = array();
                 while($rand = $stmt->fetch())
                 {
                     $data[] = $rand['doctor_id'];
-                    $data[] = $rand['firstname'];
-                    $data[] = $rand['middlename'];
-                    $data[] = $rand['lastname'];
+                    $data[] = $rand['fname'];
+                    $data[] = $rand['mname'];
+                    $data[] = $rand['lname'];
                 }
 
                 return $data;
@@ -238,9 +238,9 @@
                 {
                    $fetch_appointments_time = "SELECT 
                    app_cred_id,
-                   firstname,
-                   middlename,
-                   lastname,
+                   fname,
+                   mname,
+                   lname,
                    appointments_time 
                    FROM 
                    appointments_credentials 

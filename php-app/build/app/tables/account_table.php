@@ -1,5 +1,4 @@
 <?php
-    include_once 'User.mod.php';
     /*
     * connect to the database
     * set array for user table
@@ -25,7 +24,7 @@
     $query = mysqli_query($con,$sql);
     $totalData = mysqli_num_rows($query);
     
-    $totalFilter=$totalData;
+    $totalFilter = $totalData;
 
     $sql ="SELECT * FROM users WHERE 1=1";
     if(!empty($request['search']['value'])){
@@ -46,7 +45,7 @@
 
     $query = mysqli_query($con,$sql);
 
-    $data=array();
+    $data = array();
 
     while($row = mysqli_fetch_array($query)){
         $subdata = array();

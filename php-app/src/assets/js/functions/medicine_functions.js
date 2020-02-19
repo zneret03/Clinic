@@ -117,7 +117,7 @@
             "serverSide" : true,
             "ajax" : 
             {
-                url: "../model/medicine_table.mod.php",
+                url: "../tables/medicine_table.php",
                 type : "POST"
             }
     });

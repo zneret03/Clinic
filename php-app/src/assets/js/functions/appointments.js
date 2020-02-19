@@ -241,7 +241,14 @@
             $('#appointmentsForm').submit();
     }
     
-   
-
-    
+    $(document).ready(function(){
+        $('#appointmentsTable').DataTable({
+            "processing" : true,
+            "serverSide" : true,
+            "ajax" : {
+                url : "../tables/appointments_table.php",
+                type : "POST"
+            }
+        });
+    });
    

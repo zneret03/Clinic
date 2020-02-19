@@ -59,7 +59,7 @@
         "serverSide" : true,
         "ajax" : 
         {
-            url  : "../model/account_table.php",
+            url  : "../tables/account_table.php",
             type : "POST"
         }
     });

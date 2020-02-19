@@ -42,5 +42,6 @@
         <script src="../../../src/assets/js/functions/account_functions.js"></script>
         <script src="../../../src/assets/js/functions/doctor_functions.js"></script>
         <script src="../../../src/assets/js/functions/calendar.js"></script>
+        <script src="../../../src/assets/js/functions/appointments.js"></script>
     </body>
     </html>

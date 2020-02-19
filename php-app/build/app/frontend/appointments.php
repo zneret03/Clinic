@@ -22,7 +22,7 @@ $doct = $doctor->fetchRandomDoctor();
 </head>
 <body>
     <? include_once 'header.php' ?>
-<div class="margin">
+<div class="margin animated fadeIn" >
 <h3>CLife Appointments</h3>
 <hr>
 <br class="mt-5">
@@ -34,14 +34,14 @@ $doct = $doctor->fetchRandomDoctor();
     </div>
 <br class="mt-5">
 <div class="col-lg-6">
-<form action="../data/appointments.data.php" method="POST" role="form" id="appointmentsForm">
+<form action="../data/appointments.data.php"  method="POST" role="form" id="appointmentsForm">
     <div class="card" id="patientsAppointments" style="display:none;">
         <div class="card-header danger-color">
             <h4 class="text-white">Appointments</h4>
         </div>
         <div class="card-body">
             <div class="row">
-                    <input type="hidden" class="form-control" name="doctorid" id="doctorid"  value="<?echo $doct[0];?>">
+                    <input type="hidden" class="form-control fadeIn" name="doctorid" id="doctorid"  value="<?echo $doct[0];?>">
                     <div class="col-lg-4">
                         <div class="form-group">
                             <h4><span class="badge danger-color">First Name</span></h4>
