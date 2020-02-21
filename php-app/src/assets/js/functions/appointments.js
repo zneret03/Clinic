@@ -151,6 +151,45 @@
         listcalendar.render();
     });
 
+    /*
+    $(document).on('click','#updateAppointments',function(){
+        let appid = $('#app_code_id').val();;
+        //alert(appid);
+
+        $.ajax({
+            type : "POST",
+            url : "../data/appointments.data.php",
+            data : {appid : appid},
+            success : function()
+            {
+                alert('success updated');
+            },
+            error : function()
+            {
+                alert('AJAX FAIL TO EXECUTE');
+            }
+        });
+    });
+    */
+
+    //fetch id from server side processing
+    $(document).on('click','#getAppointments' ,function(){
+        let appointments_id = $(this).data('id');
+        $.ajax({
+            type : "POST",
+            url : "update_appointments.php",
+            data : {appointments_id : appointments_id},
+            success : function(data)
+            {
+                $('#content-data').html(data);
+            },
+            error : function()
+            {
+                alert('AJAX REQUEST FAIL');
+            }
+        });
+    });
+
     //Check if the end user fill all the required forms else prevent to sumbit appointment
     function Uservalidation()
     {

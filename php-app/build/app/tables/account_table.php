@@ -8,6 +8,13 @@
     $con = mysqli_connect('localhost','root','','clinic')
     or die("connection failed".mysqli_errno());
     
+    //Function return query
+    function sqlQuery()
+    {
+        $sql ="SELECT * FROM users";
+        return $sql;
+    }
+    
     $request = $_REQUEST;
 
     $col =array(
@@ -20,13 +27,15 @@
         6   =>  'usertype'
     );
 
-    $sql ="SELECT * FROM users";
+
+    $sql = sqlQuery();
     $query = mysqli_query($con,$sql);
     $totalData = mysqli_num_rows($query);
     
     $totalFilter = $totalData;
-
-    $sql ="SELECT * FROM users WHERE 1=1";
+    
+    //Server Side searching
+    $sql.=" WHERE 1=1";
     if(!empty($request['search']['value'])){
         $sql.=" AND (user_code Like '%".$request['search']['value']."%' ";
         $sql.=" OR user_email Like '%".$request['search']['value']."%' ";
@@ -40,6 +49,7 @@
     $query = mysqli_query($con,$sql);
     $totalData = mysqli_num_rows($query);
 
+    //Server side ordered By
     $sql.=" ORDER BY ".$col[$request['order'][0]['column']]."   ".$request['order'][0]['dir']."  LIMIT ".
     $request['start']."  ,".$request['length']."  ";
 
@@ -47,6 +57,7 @@
 
     $data = array();
 
+    //returning data to the table
     while($row = mysqli_fetch_array($query)){
         $subdata = array();
         $subdata[] = $row[0]; //user_code

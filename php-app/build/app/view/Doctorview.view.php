@@ -16,4 +16,10 @@
         {
             return $this->countAppointments();
         }
+
+        //fetching appointments data from database
+        public function displayDataAppointments($dataAppointments)
+        {
+            return $this->setAppointmentsCredentials($dataAppointments);
+        }
     }

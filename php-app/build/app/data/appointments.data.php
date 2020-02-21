@@ -1,9 +1,11 @@
 <?php
     include_once '../controller/Doctorcontr.con.php';
+    //Global variable
+    $doctor = new Doctorcontr();
+
     if(isset($_POST['submitAppointment']))
     {
       $app_id = rand().date('Y');
-      $doctor = new Doctorcontr();
       $payments_time = array(
         $_POST['total'],//Payments
         $_POST['appointments'] //Appointments_time
@@ -32,4 +34,10 @@
       //print_r($data);
 
       $doctor->appointments($data_user);
+    }
+
+    //pass data to update
+    if(isset($_POST['updateAppointments']))
+    {
+      $doctor->setAppointmentsCredentials($_POST['updateAppointments']);
     }

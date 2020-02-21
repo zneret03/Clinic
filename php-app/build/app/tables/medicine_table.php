@@ -2,6 +2,12 @@
     $con = mysqli_connect('localhost','root','','clinic')
     or die("connection failed".mysqli_errno());
     
+    function sqlQuery()
+    {
+        $sql ="SELECT * FROM medicine";
+        return $sql;
+    }
+
     $request = $_REQUEST;
 
     $col =array(
@@ -14,13 +20,13 @@
         6   =>  'description'
     );
 
-    $sql ="SELECT * FROM medicine";
+    $sql = sqlQuery();
     $query = mysqli_query($con,$sql);
     $totalData = mysqli_num_rows($query);
     
     $totalFilter=$totalData;
 
-    $sql ="SELECT * FROM medicine WHERE 1=1";
+    $sql.= " WHERE 1=1";
     if(!empty($request['search']['value'])){
         $sql.=" AND (medicine_code Like '%".$request['search']['value']."%' ";
         $sql.=" OR medicine_name Like '%".$request['search']['value']."%' ";

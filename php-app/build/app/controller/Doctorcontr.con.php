@@ -33,6 +33,7 @@
             return $this->randomDoctor();
         }
 
+        //Appointments Credentials insert into database
         public function appointments($appointments)
         {
             
@@ -49,6 +50,7 @@
             
         }
 
+        //Appointmnets and time insert into database returning last inserted ID
         public function payment_appointmentTime($payments_time)
         {
             $lastInsertedId_payments = $this->payment($payments_time[0]);
@@ -62,8 +64,15 @@
             return $data_id;
         }
 
+        //Counting all the data inserted into appointments table
         public function countAppointments()
         {
             return $this->getAppointments();
+        }
+
+        //Selecting all data from selected row returning specific data
+        public function setAppointmentsCredentials($app_code_id)
+        {
+            return $this->getAppointmentsCredentials($app_code_id);
         }
     }

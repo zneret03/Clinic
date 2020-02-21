@@ -278,4 +278,36 @@
                     var_dump($ex->getMessage());
                 }
             }
+
+            protected function getAppointmentsCredentials($app_code_id)
+            {
+                try 
+                {
+                    $appointmentsDoctor = new Doctor();
+                    $appCredentialsQuery = "SELECT 
+                    firstname,
+                    middlename,
+                    lastname,
+                    customerAddress,
+                    phoneNo,
+                    Email,
+                    Notes
+                    FROM appointments_credentials WHERE app_cred_id = ?";
+
+                    $getData = $appointmentsDoctor->executeQuery([$app_code_id],$appCredentialsQuery);
+                    $result = $getData->fetch();
+
+                    $data = array();
+                    foreach($result as $appValue)
+                    {
+                        $data[] = $appValue;
+                    }
+                    //print_r($appCred);
+                    return $data;
+                } 
+                catch (PDOException $ex) 
+                {
+                    var_dump($ex->getMessage());
+                }
+            }
     }
