@@ -96,7 +96,7 @@
         $subdata[] = $row[7]; //Notes
         $subdata[] = $row['fname']." ".$row['mname']." ".$row["lname"]; //doctor_id
         $subdata[] = $row[11]; //app_time
-        $subdata[] = $row[12]; //payments_id            
+        $subdata[] = $row[12]; //payments_id          
         $subdata[] = '<button type="button" id="getAppointments" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#UpdateappointmentsModal"  data-id="'.$row[0].'">Edit</button>';
         $subdata[] = '<button type="button" class="btn btn-danger" name="btnDeleteAppointments" id="btnDeleteAppointments" data-id="'.$row[0].'">Delete</button>';
         $data[] = $subdata;
@@ -109,6 +109,5 @@
         "recordsFiltered"   =>  intval($totalFilter),
         "data"              => $data  
     );
-
 
     echo json_encode($json_data);

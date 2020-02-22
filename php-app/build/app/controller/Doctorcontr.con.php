@@ -75,4 +75,15 @@
         {
             return $this->getAppointmentsCredentials($app_code_id);
         }
+
+        public function getDataAppointments($app_update)
+        {
+            $this->updateAppointments($app_update);
+        }
+
+        public function deleteAppointments($delete_app)
+        {
+            $this->deleteCredentials($delete_app);
+        }
+
     }

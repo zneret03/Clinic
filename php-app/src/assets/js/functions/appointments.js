@@ -151,18 +151,36 @@
         listcalendar.render();
     });
 
-    /*
+    //get data from appointments table to perform update function
     $(document).on('click','#updateAppointments',function(){
-        let appid = $('#app_code_id').val();;
-        //alert(appid);
+        
+        const appointmentsCredentials = [
+                $('#fname').val(),
+                $('#mname').val(),
+                $('#lname').val(),
+                $('#address').val(),
+                $('#phoneNum').val(),
+                $('#appEmail').val(),
+                $('#Appnotes').val(),
+                $('#app_code_id').val()
+            ];
 
         $.ajax({
             type : "POST",
             url : "../data/appointments.data.php",
-            data : {appid : appid},
+            data : {appointmentsCredentials : appointmentsCredentials},
             success : function()
             {
-                alert('success updated');
+                swal.fire({
+                    title : "Successfully Updated",
+                    text : "Please click ok to continue",
+                    icon : "success",
+                }).then((success) => {
+                    if(success)
+                    {
+                        location.reload();
+                    }
+                })
             },
             error : function()
             {
@@ -170,7 +188,47 @@
             }
         });
     });
-    */
+
+    $(document).on('click','#btnDeleteAppointments', function(){
+        let app_id = $(this).data('id');
+        
+        if(confirm("Do you really want to delete this data?"))
+        {
+            $.ajax({
+                type : "POST",
+                url : "../data/appointments.data.php",
+                data : {app_id : app_id},
+                success : function()
+                {
+                    swal.fire({
+                        title : "Deleted Successfully",
+                        text : "Please click okay to continue",
+                        icon : "success"
+                    }).then((success) =>
+                    {
+                        if(success)
+                        {
+                            location.reload();
+                        }
+                    })
+                },
+                error : function()
+                {
+                    alert('Ajax request fails');
+                }
+            });
+        }
+        else
+        {
+            swal.fire({
+                title : "Cancel Successfully",
+                text : "Click ok to continue",
+                icon : "error"
+            });
+        }
+      
+    }); 
+    
 
     //fetch id from server side processing
     $(document).on('click','#getAppointments' ,function(){

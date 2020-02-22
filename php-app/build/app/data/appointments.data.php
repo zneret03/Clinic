@@ -37,7 +37,14 @@
     }
 
     //pass data to update
-    if(isset($_POST['updateAppointments']))
+    if(isset($_POST['appointmentsCredentials']))
     {
-      $doctor->setAppointmentsCredentials($_POST['updateAppointments']);
+      $doctor->getDataAppointments($_POST['appointmentsCredentials']);
+      //print_r($_POST['appointmentsCredentials']);
+    }
+
+    //Delete appointments data from table
+    if(isset($_POST['app_id']))
+    {
+      $doctor->deleteAppointments($_POST['app_id']);
     }

@@ -21,44 +21,44 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <input type="hidden" class="form-control" name="app_code_id" id="app_code_id" value="<?echo $_POST['appointments_id'];?>">
+                            <input type="hidden" class="form-control" name="app_code_id" id="app_code_id" value="<?echo $appData[0];?>">
                             <h4><span class="badge badge-danger">Firstname</span></h4>
-                            <input type="text" class="form-control" value="<?echo $appData[0];?>" name="fname" id="fname">
+                            <input type="text" class="form-control" value="<?echo $appData[1];?>" required name="fname" id="fname">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <h4><span class="badge badge-danger">Middlename</span></h4>
-                            <input type="text" class="form-control" value="<?echo $appData[1];?>"  name="mname" id="mname">
+                            <input type="text" class="form-control" value="<?echo $appData[2];?>" required  name="mname" id="mname">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <h4><span class="badge badge-danger">Lastname</span></h4>
-                            <input type="text" class="form-control" value="<?echo $appData[2];?>"  name="lname" id="lname">
+                            <input type="text" class="form-control" value="<?echo $appData[3];?>" required  name="lname" id="lname">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <h4><span class="badge badge-danger">Address</span></h4>
-                            <input type="text" class="form-control" value="<?echo $appData[3];?>"  name="address" id="address">
+                            <input type="text" class="form-control" value="<?echo $appData[4];?>" required  name="address" id="address">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <h4><span class="badge badge-danger">Phone Number</span></h4>
-                            <input type="text" class="form-control" value="<?echo $appData[4];?>"  name="phoneNum" id="phoneNum">
+                            <input type="text" class="form-control" value="<?echo $appData[5];?>" required name="phoneNum" id="phoneNum">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <h4><span class="badge badge-danger">Email</span></h4>
-                            <input type="email" class="form-control" value="<?echo $appData[5];?>"  name="appEmail" id="appEmail">
+                            <input type="email" class="form-control" value="<?echo $appData[6];?>" required name="appEmail" id="appEmail">
                         </div>
                     </div>
                     <div class="col-lg-12">
                     <h4><span class="badge badge-danger">Description</span></h4>
-                        <textarea class="form-control" name="Appnotes" id="Appnotes" cols="10" rows="5"><?echo $appData[6]?></textarea>
+                        <textarea class="form-control" name="Appnotes" id="Appnotes" cols="10" required rows="5"><?echo $appData[7]?></textarea>
                     </div>
                 </div>
             </div>

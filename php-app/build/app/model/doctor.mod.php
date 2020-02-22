@@ -238,9 +238,9 @@
                 {
                    $fetch_appointments_time = "SELECT 
                    app_cred_id,
-                   fname,
-                   mname,
-                   lname,
+                   firstname,
+                   middlename,
+                   lastname,
                    appointments_time 
                    FROM 
                    appointments_credentials 
@@ -285,6 +285,7 @@
                 {
                     $appointmentsDoctor = new Doctor();
                     $appCredentialsQuery = "SELECT 
+                    app_cred_id,
                     firstname,
                     middlename,
                     lastname,
@@ -304,6 +305,71 @@
                     }
                     //print_r($appCred);
                     return $data;
+                } 
+                catch (PDOException $ex) 
+                {
+                    var_dump($ex->getMessage());
+                }
+            }
+
+            protected function updateAppointments($app_update)
+            {
+                try 
+                {
+                    $appointmentsDoctor = new Doctor();
+                    $update_App = "UPDATE appointments_credentials 
+                    SET firstname = ?,
+                    middlename = ?,
+                    lastname = ?,
+                    customerAddress = ?,
+                    phoneNo = ?,
+                    Email = ?,
+                    Notes = ? WHERE app_cred_id = ?";
+
+                    $appointmentsDoctor->executeQuery($app_update, $update_App);
+
+                    //print_r($app_update);
+                } 
+                catch (PDOException $ex) 
+                {
+                    var_dump($ex->getMessage());
+                }
+            }
+
+            protected function deleteCredentials($app_delete)
+            {
+                try 
+                {
+                   $appointmentsDoctor = new Doctor();
+                   $select_credentials = "SELECT app_time, payments_id FROM appointments_credentials WHERE app_cred_id = ?";
+                   $data = $appointmentsDoctor->executeQuery([$app_delete],$select_credentials);
+
+                   $result = $data->fetch();
+                   $delete_data_array = array();
+
+                   //Get each data and save to array
+                   foreach ($result as $value) {
+                            $delete_data_array[] = $value;
+                   }
+
+                   /*count all in array ang loop throug if 
+                   lessthan 1 delete appointments time data if greater than 
+                   one delete payments data
+                   */
+                  
+                   $val = count($delete_data_array);
+                   for ($i=0; $i < $val; $i++) { 
+                        if($i < 1)
+                        {
+                            $Delete_app_time = "DELETE FROM Appointments_time WHERE app_time = ?";
+                            $appointmentsDoctor->executeQuery([$delete_data_array[0]], $Delete_app_time);
+                        }
+                        else
+                        {
+                            $Delete_payments = "DELETE FROM payments WHERE payments_id = ?";
+                            $appointmentsDoctor->executeQuery([$delete_data_array[1]], $Delete_payments);
+                        }
+                    }
                 } 
                 catch (PDOException $ex) 
                 {
