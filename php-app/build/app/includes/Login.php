@@ -22,7 +22,7 @@
                             <button type="submit" name="btn_login">Login</button>
                             <a href="../frontend/index.php" class="cancel">  Cancel</a>
                     </form>
-                    Forgot Password? | <a href="#">Help</a>
+                    Forgot Password? | <a href="forgot_password.php">Help</a>
                 </div>
             </div>
         </div>

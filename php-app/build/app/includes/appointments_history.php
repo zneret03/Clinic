@@ -2,10 +2,6 @@
 <div class="container">
     <h2>Appointments History</h2>
     <hr class="mt-5">
-    <div class="text-right">
-        <button type="button" class="btn btn-warning btn-xs"><i class="fas fa-download"></i> Export</button>
-    </div>
-    
     <table class="table table-responsive table-striped text-center animated fadeIn" id="appointmentsTable">
     <thead>
         <th>
