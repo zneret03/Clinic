@@ -221,3 +221,111 @@
             $('#deleteSchedule').remove();
         }
     }
+
+    $(document).ready(function(){
+        $('#appointmentsTable').DataTable({
+            "processing" : true,
+            "serverSide" : true,
+            "ajax" : {
+                url : "../tables/appointments_table.php",
+                type : "POST"
+            }
+        });
+    });
+
+      //fetch id from server side processing
+      $(document).on('click','#getAppointments' ,function(){
+        let appointments_id = $(this).data('id');
+        $.ajax({
+            type : "POST",
+            url : "update_appointments.php",
+            data : {appointments_id : appointments_id},
+            success : function(data)
+            {
+                $('#content-data').html(data);
+            },
+            error : function()
+            {
+                alert('AJAX REQUEST FAIL');
+            }
+        });
+    });
+
+    $(document).on('click','#btnDeleteAppointments', function(){
+        let app_id = $(this).data('id');
+        
+        if(confirm("Do you really want to delete this data?"))
+        {
+            $.ajax({
+                type : "POST",
+                url : "../data/appointments.data.php",
+                data : {app_id : app_id},
+                success : function()
+                {
+                    swal.fire({
+                        title : "Deleted Successfully",
+                        text : "Please click okay to continue",
+                        icon : "success"
+                    }).then((success) =>
+                    {
+                        if(success)
+                        {
+                            location.reload();
+                        }
+                    })
+                },
+                error : function()
+                {
+                    alert('Ajax request fails');
+                }
+            });
+        }
+        else
+        {
+            swal.fire({
+                title : "Cancel Successfully",
+                text : "Click ok to continue",
+                icon : "error"
+            });
+        }
+      
+    }); 
+    
+     //get data from appointments table to perform update function
+     $(document).on('click','#updateAppointments',function(){
+        
+        const appointmentsCredentials = [
+                $('#fname').val(),
+                $('#mname').val(),
+                $('#lname').val(),
+                $('#address').val(),
+                $('#phoneNum').val(),
+                $('#appEmail').val(),
+                $('#Appnotes').val(),
+                $('#app_code_id').val()
+            ];
+
+        $.ajax({
+            type : "POST",
+            url : "../data/appointments.data.php",
+            data : {appointmentsCredentials : appointmentsCredentials},
+            success : function()
+            {
+                swal.fire({
+                    title : "Successfully Updated",
+                    text : "Please click ok to continue",
+                    icon : "success",
+                }).then((success) => {
+                    if(success)
+                    {
+                        location.reload();
+                    }
+                })
+            },
+            error : function()
+            {
+                alert('AJAX FAIL TO EXECUTE');
+            }
+        });
+    });
+
