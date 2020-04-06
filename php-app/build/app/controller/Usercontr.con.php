@@ -108,4 +108,19 @@
             $this->getAccountsInserted();
         }
 
+        public function token($token)
+        {
+            $userEmail = new Userview();
+            $result = $this->validate_token($token[0]);
+            foreach($result as $val)
+            {
+                if($val !== false)
+                {
+                    return $userEmail->email($token[0],$val["reset_token"]);
+                    exit;
+                }
+            }
+            $this->data_token($token);
+        }
+
     }

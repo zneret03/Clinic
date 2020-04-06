@@ -90,6 +90,33 @@
             }
             return $data;
         }
+
+        public function email($user_email,$token)
+        {
+            $to = $user_email;
+
+            $subject = "Reset your password for Clife Company";
+
+            $message = "<p>We recieve a password reset request. Thi link to reset your password is below
+            make this request, or you can ignore this email</p>";
+
+            $message .= "<p>Here is your password reset link</p>";
+
+            $message .= '<a href="'.$token.'">'.$token.'</a>';
+
+            $headers  = "From : CLife <iandrilon2@.com>\r\n";
+            $headers .= "Reply-To : DrilonIan@yahoo.com\r\n";
+            $headers .= "Content-type: text/html\r\n";
+
+            $data = array(
+                $to,
+                $subject,
+                $message,
+                $headers
+            );
+
+            return $data;
+        }
     }
 
     

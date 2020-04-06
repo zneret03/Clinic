@@ -322,6 +322,53 @@
                 var_dump($ex->getMessage());
             }
         }
+        
+        //Insert token for forgot user password
+        protected function data_token($data_token)
+        {
+            try 
+            {
+                $sqlquery = new User();
+                $Select_Id = "SELECT user_code FROM users WHERE user_email = ?";
+                $getdata = $sqlquery->executeQuery([$data_token[0]],$Select_Id);
+                $result =  $getdata->fetch();
+
+                while($result)
+                {
+                    array_push($data_token,$result['user_code']);
+                    $insert_Token = "INSERT INTO password_reset (email,reset_selector,reset_token,reset_expires,user_code) VALUES (?,?,?,?,?)";
+                    $sqlquery->executeQuery($data_token,$insert_Token);
+                    //print_r($data);
+                    exit;
+                }
+                
+            } 
+            catch (PDOException $ex) 
+            {
+                var_dump($ex->getMessage());
+            }
+        }
+
+        protected function validate_token($token)
+        {
+            try 
+            {
+                $sqlquery = new User();
+                $identify_email = "SELECT reset_selector,reset_token,reset_expires FROM password_reset WHERE email = ?";
+                $getData = $sqlquery->executeQuery([$token],$identify_email);
+                $result = $getData->fetch();
+
+                $data = array();
+                foreach($result as $value)
+                {
+                    $data[] = $result;
+                }
+                return $data;
+            } 
+            catch (PDOException $ex) {
+                  var_dump($ex->getMessage());
+            }
+        }
     }
 
 

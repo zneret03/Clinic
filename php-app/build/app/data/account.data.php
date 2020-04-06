@@ -53,3 +53,35 @@
         //print_r($_POST['time_id']);
         $account->DeleteTmime($_POST['time_id']);
     }
+
+    //forgot Password
+    if(isset($_POST['sendEmail']))
+    {
+        $selector = bin2hex(random_bytes(8));
+        $token = random_bytes(32);
+
+        $url = "http://localhost/Clinic/php-app/build/app/includes/reset_password.php?selector=". $selector . "&validator=" . bin2hex($token);
+        $expires = date("U") + 1800;
+
+        $data_token = array(
+          0 =>  $_POST['emailPass'],
+          1 =>  $selector,
+          2 =>  $url,
+          3 =>  $expires
+        );
+
+        $data = $account->token($data_token);
+        
+        if(mail($data[0],$data[1],$data[2],$data[3]))
+        {
+            echo "success";
+        }
+        else
+        {
+            var_dump(error_get_last()['message']);
+        }
+    }
+    else
+    {
+        header("Location : ../includes/Login.php");
+    }

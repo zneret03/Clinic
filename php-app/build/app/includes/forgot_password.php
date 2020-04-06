@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="container">
-        <form action="" method="POST" name="forgot_password" id="forgot_password">
+        <form action="../data/account.data.php" method="POST" name="forgot_password" id="forgot_password">
         <div class="row justify-content-center">
             <div class="card mt-5" style="width: 25em; margin: 0 auto;">
                 <div class="card-header aqua-gradient">
@@ -22,7 +22,7 @@
                 <div class="card-body">
                     <p class="text-center">An e-mail will be send to you with instructions on how to reset your password</p>
                     <div class="form-group">
-                        <input type="email" class="form-control" name="emailPass" id="emailPass" placeholder="Email@yahoo.com">
+                        <input type="email" class="form-control" name="emailPass" id="emailPass" required placeholder="Email@yahoo.com">
                     </div>
                 </div>
                 <!--card body-->
