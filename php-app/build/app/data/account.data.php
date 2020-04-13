@@ -54,6 +54,7 @@
         $account->DeleteTmime($_POST['time_id']);
     }
 
+    /*
     //forgot Password
     if(isset($_POST['sendEmail']))
     {
@@ -85,3 +86,4 @@
     {
         header("Location : ../includes/Login.php");
     }
+    */
